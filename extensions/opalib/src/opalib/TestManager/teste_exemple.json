@@ -1,0 +1,22 @@
+{
+	"tests": [
+		{
+			"scenario": 1,
+			"config": {
+				"startScene": "SplashScreen",
+				"testParams": { "kit": "POP_ID" }
+			},
+			"events": [
+				{ "id": 0, "time": 10, "component_path": "n0.n0", "duration": 0, "type": "TOUCH" },
+				{ "id": 0, "time": 10, "tag": "SplashScreen", "type": "WAIT_TAG" },
+			]
+		},
+		{
+			"scenario": 2,
+			"events": [
+				{ "id": 0, "time": 10, "component_path": "n0.n0", "duration": 0, "type": "TOUCH" },
+				{ "id": 0, "time": 10, "tag": "SplashScreen", "type": "WAIT_TAG" },
+			]
+		},
+	]
+}

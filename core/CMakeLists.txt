@@ -127,6 +127,7 @@ option(AX_ENABLE_EXT_SPINE "Build extension spine" ${AX_EXT_HINT})
 option(AX_ENABLE_EXT_DRAGONBONES "Build extension DragonBones" ${AX_EXT_HINT})
 option(AX_ENABLE_EXT_COCOSTUDIO "Build extension cocostudio" ${AX_EXT_HINT})
 option(AX_ENABLE_EXT_FAIRYGUI "Build extension FairyGUI" ${AX_EXT_HINT})
+option(AX_ENABLE_EXT_OPALIB "Build extension Opalib" ${AX_EXT_HINT})
 option(AX_ENABLE_EXT_LIVE2D "Build extension Live2D" OFF)
 option(AX_ENABLE_EXT_EFFEKSEER "Build extension Effekseer" OFF)
 

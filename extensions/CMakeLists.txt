@@ -74,6 +74,19 @@ if(AX_ENABLE_EXT_FAIRYGUI)
   endif()
 endif()
 
+
+if(AX_ENABLE_EXT_OPALIB)
+  add_subdirectory(opalib)
+  if(BUILD_SHARED_LIBS)
+    target_link_libraries(opalib fairygui)
+  else()
+    target_include_directories(opalib
+            PUBLIC ${CMAKE_CURRENT_LIST_DIR}/fairygui/src/fairygui
+            PUBLIC ${CMAKE_CURRENT_LIST_DIR}/fairygui/src
+            )
+  endif()
+endif()
+
 if(AX_ENABLE_EXT_IMGUI)
   add_subdirectory(ImGui)
   option(AX_ENABLE_EXT_INSPECTOR "Enable extension Inspector" ON)

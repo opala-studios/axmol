@@ -1,0 +1,22 @@
+add_library(
+        optests STATIC
+
+        #Headers
+        OPTest.hpp
+        OPTestEvent.hpp
+        OPTestManager.hpp
+
+        #Sources
+        OPTest.cpp
+        OPTestEvent.cpp
+        OPTestManager.cpp
+)
+target_include_directories(
+        optests
+        PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}
+)
+target_link_libraries(
+        optests
+        opalib
+)

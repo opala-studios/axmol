@@ -74,6 +74,11 @@ if(AX_BUILD_TESTS)
         add_test_target(fairygui-tests ${_AX_ROOT}/tests/fairygui-tests)
     endif()
 
+    # add fairygui tests when fairygui extension is enabled
+    if(AX_ENABLE_EXT_OPALIB)
+        add_test_target(opalib-tests ${_AX_ROOT}/tests/opalib-tests)
+    endif()
+
     if(AX_ENABLE_EXT_LIVE2D)
         add_test_target(live2d-tests ${_AX_ROOT}/tests/live2d-tests)
     endif()

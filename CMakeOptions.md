@@ -28,6 +28,7 @@
   - AX_ENABLE_EXT_DRAGONBONES: the dragonbones extension: `TRUE`
   - AX_ENABLE_EXT_COCOSTUDIO: the cocosstudio extension for load .csb: `TRUE`
   - AX_ENABLE_EXT_FAIRYGUI: the fairygui extension, default: `TRUE`
+  - AX_ENABLE_EXT_OPALIB: the opalib extension, default: `TRUE`
   - AX_ENABLE_EXT_IMGUI: the imgui extension, support macos,win,linux,android, default: `TRUE` 
   - AX_ENABLE_EXT_INSPECTOR: the imgui inspector extension, support macos,win,linux,android, default: `TRUE` 
   - AX_ENABLE_EXT_SDFGEN: the SDF atlas generator, default: `TRUE`

@@ -33,6 +33,7 @@ if(NOT DEFINED BUILD_ENGINE_DONE)
     set(AX_ENABLE_EXT_LIVE2D ON CACHE BOOL "Build extension Live2D" FORCE)
 
     set(AX_ENABLE_EXT_FAIRYGUI OFF CACHE BOOL "Build extension FairyGUI" FORCE)
+    set(AX_ENABLE_EXT_OPALIB OFF CACHE BOOL "Build extension Opalib" FORCE)
     set(AX_ENABLE_EXT_SPINE OFF CACHE BOOL "Build extension spine" FORCE)
     set(AX_ENABLE_EXT_DRAGONBONES OFF CACHE BOOL "Build extension DragonBones" FORCE)
     set(AX_ENABLE_EXT_COCOSTUDIO OFF CACHE BOOL "Build extension cocostudio" FORCE)

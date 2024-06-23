@@ -223,7 +223,14 @@ function(ax_link_cxx_prebuilt APP_NAME AX_ROOT_DIR AX_PREBUILT_DIR)
         list(APPEND LIBS "fairygui")
         target_include_directories(${APP_NAME}        
             PRIVATE ${AX_ROOT_DIR}/extensions/fairygui/src
-        )         
+        )
+    endif()
+
+    if (AX_ENABLE_EXT_OPALIB)
+        list(APPEND LIBS "opalib")
+        target_include_directories(${APP_NAME}
+                PRIVATE ${AX_ROOT_DIR}/extensions/opalib/src
+                )
     endif()
 
 	if (AX_ENABLE_EXT_LIVE2D)
