@@ -20,6 +20,7 @@ public:
 
     static GRoot* create(ax::Scene* scene, int zOrder = 1000);
     static GRoot* getInstance() { return _inst; }
+    static void setInstance(GRoot* root) { _inst = root; }
 
     void showWindow(Window* win);
     void hideWindow(Window* win);
@@ -57,6 +58,8 @@ public:
     void hideTooltips();
 
     void playSound(const std::string& url, float volumeScale = 1);
+    virtual void playSound(fairygui::PackageItem* item, float volumeScale);
+
     bool isSoundEnabled() const { return _soundEnabled; }
     void setSoundEnabled(bool value);
     float getSoundVolumeScale() const { return _soundVolumeScale; }
@@ -68,9 +71,9 @@ protected:
     virtual void handlePositionChanged() override;
     virtual void onEnter() override;
     virtual void onExit() override;
+    bool initWithScene(ax::Scene* scene, int zOrder);
 
 private:
-    bool initWithScene(ax::Scene* scene, int zOrder);
     void onWindowSizeChanged();
     void createModalLayer();
     void adjustModalLayer();

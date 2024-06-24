@@ -485,6 +485,11 @@ void GRoot::playSound(const std::string& url, float volumnScale)
         AudioEngine::play2d(pi->file, false, _soundVolumeScale * volumnScale);
 }
 
+void GRoot::playSound(fairygui::PackageItem* item, float volumeScale)
+{
+    CCLOGWARN("%s", std::string("Sound " + item->file + " will not be played. Override GRoot::playSound to implement your own audio engine.").c_str());
+}
+
 void GRoot::setSoundEnabled(bool value)
 {
     _soundEnabled = value;
