@@ -9,7 +9,7 @@
 #include "OPGRoot.hpp"
 #include <cocos2d.h>
 #include "../Debug/OPDebug.hpp"
-#include <opalib/SoundEffects/OPSoundController.h>
+//#include <opalib/SoundEffects/OPSoundController.h>
 
 USING_NS_CC;
 using namespace fairygui;
@@ -39,12 +39,12 @@ void OPGRoot::playSound(PackageItem* item, float volume)
 
     auto path = FileUtils::getInstance()->fullPathForFilename(item->file);
 
-    OPSoundController::shared()->addSound(item->file, path, [item, path](bool success) {
-        if (!success){
-            OP_LOG_ERROR("Failed to load sound for GRoot on path " + path);
-            return;
-        }
-        OPSoundController::shared()->play(item->file);
-    });
+//    OPSoundController::shared()->addSound(item->file, path, [item, path](bool success) {
+//        if (!success){
+//            OP_LOG_ERROR("Failed to load sound for GRoot on path " + path);
+//            return;
+//        }
+//        OPSoundController::shared()->play(item->file);
+//    });
 }
 

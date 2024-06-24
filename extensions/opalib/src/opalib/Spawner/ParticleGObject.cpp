@@ -9,7 +9,7 @@
 
 opalib::ParticleGObject::ParticleGObject(cocos2d::Vec2 pos) {
     _pos = pos;
-	_rotation = CCRANDOM_MINUS1_1() * 60.0f;
+	_rotation = AXRANDOM_MINUS1_1() * 60.0f;
 }
 
 void opalib::ParticleGObject::spawn()
@@ -67,7 +67,7 @@ void opalib::ParticleGObject::setupCurve()
         case ParticleState::SPAWN:
 			_curveX = _spawnCurveXHandler(_index, _pos.x, _spawnPos.x);
 			_curveY = _spawnCurveYHandler(_index, _pos.y, _spawnPos.y);
-			_curveRotation = OPCurve<float>::easeInOut(_rotation, _rotation + (CCRANDOM_MINUS1_1() * 360));
+			_curveRotation = OPCurve<float>::easeInOut(_rotation, _rotation + (AXRANDOM_MINUS1_1() * 360));
 			_curveAlpha = _alphaCurveHandler(_index, _startAlpha, _endAlpha);
 			break;
         case ParticleState::MOVE:

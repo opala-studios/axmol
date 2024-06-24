@@ -7,7 +7,7 @@
 
 
 #include "RewardAnimationScene.hpp"
-#include "../Managers/FXManager.hpp"
+//#include "../Managers/FXManager.hpp"
 
 USING_NS_CC;
 using namespace fairygui;
@@ -50,7 +50,7 @@ bool RewardAnimationScene::init()
         return false;
     }
 	
-	FXManager::shared();
+//	FXManager::shared();
 	
 	_coinsPool = std::make_unique<OPPool>("coin", _coinsPoolSize, _view);
 	_rStarsPool = std::make_unique<OPPool>("r-star", _starsPoolSize, _view);
@@ -69,7 +69,7 @@ bool RewardAnimationScene::init()
 		_coinsPool->getObject(index)->setRotation(rotation);
 		_coinsPool->getObject(index)->setVisible(true);
 		
-		FXManager::shared()->play(FXManager::Effect::SPAWN_COIN);
+//		FXManager::shared()->play(FXManager::Effect::SPAWN_COIN);
 	});
 	
 	_coinsSpawner.setUpdateHandler([this](int index, cocos2d::Vec2 pos, float rotation, float alpha) {
@@ -83,7 +83,7 @@ bool RewardAnimationScene::init()
 		
 		_coinsText->setText(std::to_string(_numberCoinsSpawned));
 		
-		FXManager::shared()->play(FXManager::Effect::RECEIVE_COIN);
+//		FXManager::shared()->play(FXManager::Effect::RECEIVE_COIN);
 	});
 	
 	_coinsButton->addClickListener([this](const EventContext* ev) {
@@ -112,7 +112,7 @@ bool RewardAnimationScene::init()
 		_rStarsPool->getObject(index)->setRotation(rotation);
 		_rStarsPool->getObject(index)->setVisible(true);
 		
-		FXManager::shared()->play(FXManager::Effect::SPAWN_STAR);
+//		FXManager::shared()->play(FXManager::Effect::SPAWN_STAR);
 	});
 	
 	_starsSpawner.setUpdateHandler([this](int index, cocos2d::Vec2 pos, float rotation, float alpha) {
@@ -125,7 +125,7 @@ bool RewardAnimationScene::init()
 		
 		_starsPool->getObject(index)->getController("color")->setSelectedIndex(1);
 		
-		FXManager::shared()->play(FXManager::Effect::RECEIVE_STAR);
+//		FXManager::shared()->play(FXManager::Effect::RECEIVE_STAR);
 	});
 	
 	_starsButton->addClickListener([this](const EventContext* ev) {

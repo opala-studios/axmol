@@ -60,12 +60,20 @@ if(NOT DEFINED BUILD_ENGINE_DONE)
     add_subdirectory(${_AX_ROOT}/core ${ENGINE_BINARY_PATH}/axmol/core)
 endif()
 
-_1kfetch(sample-assets)
-_1klink("${sample-assets_SOURCE_DIR}/fairygui-tests/Content" "${CMAKE_CURRENT_LIST_DIR}/Content")
 
 # record sources, headers, resources...
-file(GLOB GAME_SOURCE Source/*.cpp)
-file(GLOB GAME_HEADER Source/*.h)
+#file(GLOB GAME_SOURCE Source/*.cpp)
+#file(GLOB GAME_HEADER Source/*.h)
+
+
+set(GAME_HEADER
+    Source/AppDelegate.h
+    Source/Scenes/RewardAnimationScene.hpp
+)
+set(GAME_SOURCE
+    Source/AppDelegate.cpp
+    Source/Scenes/RewardAnimationScene.cpp
+)
 
 set(GAME_INC_DIRS
         "${CMAKE_CURRENT_SOURCE_DIR}/Source"

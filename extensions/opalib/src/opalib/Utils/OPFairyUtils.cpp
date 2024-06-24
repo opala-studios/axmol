@@ -8,7 +8,7 @@
 
 #include "OPFairyUtils.hpp"
 #include "../Misc/OPSafeArea.hpp"
-#include "../Ads/OPAds.hpp"
+//#include "../Ads/OPAds.hpp"
 
 using namespace fairygui;
 
@@ -103,7 +103,7 @@ cocos2d::Vec2 OPFairyUtils::getScreenPosition(fairygui::GObject* object)
 
 cocos2d::Vec2 OPFairyUtils::getScreenFactor() {
     auto glScreenSize =
-        cocos2d::Director::getInstance()->getOpenGLView()->getFrameSize();
+        cocos2d::Director::getInstance()->getGLView()->getFrameSize();
     auto sceneScreenSize =
         cocos2d::Director::getInstance()->getRunningScene()->getContentSize();
 

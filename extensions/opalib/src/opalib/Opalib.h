@@ -102,7 +102,7 @@
 #include "./Spawner/SpawnerGObject.hpp"
 //#include <Utils/PerformanceTracker.hpp>
 //#include <Utils/OPDateTime.hpp>
-#include <Notifications/OPLocalNotificationManager.hpp>
+//#include <Notifications/OPLocalNotificationManager.hpp>
 #include "cocos2d.h"
 
 class Opalib

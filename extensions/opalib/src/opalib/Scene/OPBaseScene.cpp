@@ -4,13 +4,13 @@
 
 #include "OPBaseScene.hpp"
 
-#include <boost/make_unique.hpp>
-#include <boost/core/demangle.hpp>
+//#include <boost/make_unique.hpp>
+//#include <boost/core/demangle.hpp>
 
-#include "../Ads/OPAds.hpp"
-#include "../Events/OPEvents.hpp"
+//#include "../Ads/OPAds.hpp"
+//#include "../Events/OPEvents.hpp"
 #include "../Fairy/OPGRoot.hpp"
-#include "../Helpers/OPString.hpp"
+//#include "../Helpers/OPString.hpp"
 #include "../Misc/OPFairySafeArea.hpp"
 #include "../Misc/OPSafeArea.hpp"
 #include "../Utils/FairyUtils.hpp"
@@ -26,7 +26,7 @@ bool OPBaseScene::init(std::unique_ptr<OPBaseSceneParams> params)
     }
 
     if (params == nullptr) {
-        _params = boost::make_unique<OPBaseSceneParams>();
+        _params = std::make_unique<OPBaseSceneParams>();
     } else {
         _params = std::move(params);
     }
@@ -69,7 +69,7 @@ bool OPBaseScene::init(std::unique_ptr<OPBaseSceneParams> params)
         _bannerArea = _view->getChild(getBannerAreaViewName());
         if (_bannerArea) {
 //            _bannerArea->setVisible(false);
-            _bannerArea->setHeight(OPAds::shared()->getBannerHeight());
+//            _bannerArea->setHeight(OPAds::shared()->getBannerHeight());
         }
     }
 
@@ -78,24 +78,24 @@ bool OPBaseScene::init(std::unique_ptr<OPBaseSceneParams> params)
         updateSafeAreaBounds();
     }
 
-    for (const auto& item : _params->translations) {
-        std::string localizedText;
-        if (item.args.empty()) {
-            localizedText = OPLocalization::get(item.localizationKey);
-        } else {
-            localizedText = OPLocalization::get(item.localizationKey, item.args);
-        }
-
-        if (item.uppercased){
-            localizedText = OPString::uppercased(localizedText);
-        }
-
-        if (!item.startText.empty()) {
-            localizedText = item.startText + localizedText;
-        }
-
-        _view->getChildByPath(item.childPath)->setText(localizedText);
-    }
+//    for (const auto& item : _params->translations) {
+//        std::string localizedText;
+//        if (item.args.empty()) {
+//            localizedText = OPLocalization::get(item.localizationKey);
+//        } else {
+//            localizedText = OPLocalization::get(item.localizationKey, item.args);
+//        }
+//
+//        if (item.uppercased){
+//            localizedText = OPString::uppercased(localizedText);
+//        }
+//
+//        if (!item.startText.empty()) {
+//            localizedText = item.startText + localizedText;
+//        }
+//
+//        _view->getChildByPath(item.childPath)->setText(localizedText);
+//    }
 
     auto cocosEventListener = EventListenerKeyboard::create();
     cocosEventListener->onKeyReleased = [this](cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event) {
@@ -106,19 +106,19 @@ bool OPBaseScene::init(std::unique_ptr<OPBaseSceneParams> params)
     Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(cocosEventListener, this);
 	
 	_view->addEventListener(UIEventType::TouchBegin, [&](const EventContext* ev) {
-		OPEventBus::shared()->notify(OPBaseSceneButtonClickTestEvent{ev->getInput()->getTarget(),
-																	 ev,
-																	 UIEventType::TouchBegin,
-																	 ev->getInput()->getPosition().x,
-																	 ev->getInput()->getPosition().y});
+//		OPEventBus::shared()->notify(OPBaseSceneButtonClickTestEvent{ev->getInput()->getTarget(),
+//                                             ev,
+//                                             UIEventType::TouchBegin,
+//                                             ev->getInput()->getPosition().x,
+//                                             ev->getInput()->getPosition().y});
 	});
 	
 	_view->addEventListener(UIEventType::TouchEnd, [&](const EventContext* ev) {
-		OPEventBus::shared()->notify(OPBaseSceneButtonClickTestEvent{ev->getInput()->getTarget(),
-																	 ev,
-																	 UIEventType::TouchEnd,
-																	 ev->getInput()->getPosition().x,
-																	 ev->getInput()->getPosition().y});
+//		OPEventBus::shared()->notify(OPBaseSceneButtonClickTestEvent{ev->getInput()->getTarget(),
+//                                             ev,
+//                                             UIEventType::TouchEnd,
+//                                             ev->getInput()->getPosition().x,
+//                                             ev->getInput()->getPosition().y});
 	});
 
     return true;
@@ -127,15 +127,15 @@ bool OPBaseScene::init(std::unique_ptr<OPBaseSceneParams> params)
 void OPBaseScene::updateSafeAreaBounds()
 {
     if (_safeArea) {
-        FairyUtils::positionOnSafeArea(_safeArea, requiresBanner() && OPAds::shared()->isBannerWanted());
+//        FairyUtils::positionOnSafeArea(_safeArea, requiresBanner() && OPAds::shared()->isBannerWanted());
     }
 }
 
 void OPBaseScene::showBannerArea()
 {
     if (_bannerArea) {
-        _bannerArea->setHeight(OPAds::shared()->getBannerHeight());
-        _bannerArea->setWidth(OPAds::shared()->getBannerWidth());
+//        _bannerArea->setHeight(OPAds::shared()->getBannerHeight());
+//        _bannerArea->setWidth(OPAds::shared()->getBannerWidth());
     }
 }
 
@@ -201,23 +201,23 @@ void OPBaseScene::onEnter()
     // quando a tela fica visível, atualiza a area do banner e
     // cria um listener para atualizar também quando o banner
     // mudar de visibilidade
-    _bannerVisibilityListener
-        = Director::getInstance()->getEventDispatcher()->addCustomEventListener(OPEvents::bannerVisibilityDidChange, [this](EventCustom*) {
-              updateBannerArea();
-          });
+//    _bannerVisibilityListener
+//        = Director::getInstance()->getEventDispatcher()->addCustomEventListener(OPEvents::bannerVisibilityDidChange, [this](EventCustom*) {
+//              updateBannerArea();
+//          });
 
-    if (requiresBanner()) {
-        OPAds::shared()->showBanner();
-    } else {
-        OPAds::shared()->hideBanner();
-    }
+//    if (requiresBanner()) {
+//        OPAds::shared()->showBanner();
+//    } else {
+//        OPAds::shared()->hideBanner();
+//    }
 }
 
 void OPBaseScene::onEnterTransitionDidFinish()
 {
 	Scene::onEnterTransitionDidFinish();
 	
-	OPEventBus::shared()->notify(OPBaseSceneChangeSceneEvent{ boost::core::demangle(typeid(*this).name()) });
+//	OPEventBus::shared()->notify(OPBaseSceneChangeSceneEvent{ boost::core::demangle(typeid(*this).name()) });
 }
 
 void OPBaseScene::onExitTransitionDidStart()
@@ -234,12 +234,12 @@ void OPBaseScene::onExitTransitionDidStart()
 
 void OPBaseScene::updateBannerArea()
 {
-    if (requiresBanner() && OPAds::shared()->isBannerWanted()) {
-        showBannerArea();
-    } else {
-        hideBannerArea();
-    }
-
+//    if (requiresBanner() && OPAds::shared()->isBannerWanted()) {
+//        showBannerArea();
+//    } else {
+//        hideBannerArea();
+//    }
+//
     updateSafeAreaBounds();
 }
 

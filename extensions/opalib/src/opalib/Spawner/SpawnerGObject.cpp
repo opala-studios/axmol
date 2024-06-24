@@ -129,8 +129,8 @@ void opalib::SpawnerGObject::update(float dt) {
 					startPos.x = _startRects[originIndex].origin.x + _startRects[originIndex].size.width/2.0f;
 					startPos.y = _startRects[originIndex].origin.y + _startRects[originIndex].size.height/2.0f;
 				} else {
-					startPos.x = _startRects[originIndex].origin.x + (CCRANDOM_0_1() * _startRects[originIndex].size.width);
-					startPos.y = _startRects[originIndex].origin.y + (CCRANDOM_0_1() * _startRects[originIndex].size.height);
+					startPos.x = _startRects[originIndex].origin.x + (AXRANDOM_0_1() * _startRects[originIndex].size.width);
+					startPos.y = _startRects[originIndex].origin.y + (AXRANDOM_0_1() * _startRects[originIndex].size.height);
 				}
 
 				cocos2d::Vec2 endPos;
@@ -138,8 +138,8 @@ void opalib::SpawnerGObject::update(float dt) {
 					endPos.x = _endRects[destinationIndex].origin.x + _endRects[destinationIndex].size.width/2.0f;
 					endPos.y = _endRects[destinationIndex].origin.y + _endRects[destinationIndex].size.height/2.0f;
 				} else{
-					endPos.x = _endRects[destinationIndex].origin.x + (CCRANDOM_0_1() * _endRects[destinationIndex].size.width);
-					endPos.y = _endRects[destinationIndex].origin.y + (CCRANDOM_0_1() * _endRects[destinationIndex].size.height);
+					endPos.x = _endRects[destinationIndex].origin.x + (AXRANDOM_0_1() * _endRects[destinationIndex].size.width);
+					endPos.y = _endRects[destinationIndex].origin.y + (AXRANDOM_0_1() * _endRects[destinationIndex].size.height);
 				}
 
 				_objects[i] = ParticleGObject(startPos);
@@ -204,71 +204,71 @@ void opalib::SpawnerGObject::setSpawnStyle(opalib::SpawnStyle style, float maxDi
 	switch (style) {
         case SpawnStyle::RANDOM:
             setCustomSpawnStyle([maxDistance](int index, float startX, float startY) {
-                return cocos2d::Vec2(startX + (CCRANDOM_MINUS1_1() * maxDistance),
-                        startY + (CCRANDOM_MINUS1_1() * maxDistance));
+                return cocos2d::Vec2(startX + (AXRANDOM_MINUS1_1() * maxDistance),
+                        startY + (AXRANDOM_MINUS1_1() * maxDistance));
             });
 			break;
         case SpawnStyle::TO_LEFT:
             setCustomSpawnStyle([maxDistance](int index, float startX, float startY) {
-                return cocos2d::Vec2(startX - (CCRANDOM_0_1() * maxDistance), startY);
+                return cocos2d::Vec2(startX - (AXRANDOM_0_1() * maxDistance), startY);
             });
 			break;
         case SpawnStyle::TO_RIGHT:
             setCustomSpawnStyle([maxDistance](int index, float startX, float startY) {
-                return cocos2d::Vec2(startX + (CCRANDOM_0_1() * maxDistance), startY);
+                return cocos2d::Vec2(startX + (AXRANDOM_0_1() * maxDistance), startY);
             });
 			break;
         case SpawnStyle::TO_TOP:
             setCustomSpawnStyle([maxDistance](int index, float startX, float startY) {
-                return cocos2d::Vec2(startX, startY - (CCRANDOM_0_1() * maxDistance));
+                return cocos2d::Vec2(startX, startY - (AXRANDOM_0_1() * maxDistance));
             });
 			break;
         case SpawnStyle::TO_BOTTOM:
             setCustomSpawnStyle([maxDistance](int index, float startX, float startY) {
-                return cocos2d::Vec2(startX, startY + (CCRANDOM_0_1() * maxDistance));
+                return cocos2d::Vec2(startX, startY + (AXRANDOM_0_1() * maxDistance));
             });
 			break;
         case SpawnStyle::TO_BOTTOM_RANDOM_X:
             setCustomSpawnStyle([maxDistance](int index, float startX, float startY) {
-                return cocos2d::Vec2(startX + ((CCRANDOM_0_1() - 0.5f) * maxDistance), startY + (CCRANDOM_0_1() * maxDistance));
+                return cocos2d::Vec2(startX + ((AXRANDOM_0_1() - 0.5f) * maxDistance), startY + (AXRANDOM_0_1() * maxDistance));
             });
             break;
 		case SpawnStyle::CENTER_TO_BORDER:
 			setCustomSpawnStyle([maxDistance](int index, float startX, float startY) {
 				if(index % 4 == 0.0f) {
 					return cocos2d::Vec2(startX, startY) +
-							(cocos2d::Vec2(-CCRANDOM_0_1(), -CCRANDOM_0_1()) * maxDistance);
+							(cocos2d::Vec2(-AXRANDOM_0_1(), -AXRANDOM_0_1()) * maxDistance);
 				} else if(index % 3 == 0.0f) {
 					return cocos2d::Vec2(startX, startY) +
-							(cocos2d::Vec2(CCRANDOM_0_1(), -CCRANDOM_0_1()) * maxDistance);
+							(cocos2d::Vec2(AXRANDOM_0_1(), -AXRANDOM_0_1()) * maxDistance);
 				} else if(index % 2 == 0.0f) {
 					return cocos2d::Vec2(startX, startY) +
-							(cocos2d::Vec2(CCRANDOM_0_1(), CCRANDOM_0_1()) * maxDistance);
+							(cocos2d::Vec2(AXRANDOM_0_1(), AXRANDOM_0_1()) * maxDistance);
 				}
 				
 				return cocos2d::Vec2(startX, startY) +
-						(cocos2d::Vec2(-CCRANDOM_0_1(), CCRANDOM_0_1()) * maxDistance);
+						(cocos2d::Vec2(-AXRANDOM_0_1(), AXRANDOM_0_1()) * maxDistance);
 			});
 			break;
 		case SpawnStyle::CENTER_TO_BORDER_RANDOM:
 			setCustomSpawnStyle([maxDistance](int index, float startX, float startY) {
 				if(index % 4 == 0.0f) {
 					return cocos2d::Vec2(startX, startY) +
-							cocos2d::Vec2(-CCRANDOM_0_1(), -CCRANDOM_0_1()).getNormalized() *
-							(0.1f + CCRANDOM_0_1() * 0.9f) * maxDistance;
+							cocos2d::Vec2(-AXRANDOM_0_1(), -AXRANDOM_0_1()).getNormalized() *
+							(0.1f + AXRANDOM_0_1() * 0.9f) * maxDistance;
 				} else if(index % 3 == 0.0f) {
 					return cocos2d::Vec2(startX, startY) +
-							cocos2d::Vec2(CCRANDOM_0_1(), -CCRANDOM_0_1()).getNormalized() *
-							(0.1f + CCRANDOM_0_1() * 0.9f) * maxDistance;
+							cocos2d::Vec2(AXRANDOM_0_1(), -AXRANDOM_0_1()).getNormalized() *
+							(0.1f + AXRANDOM_0_1() * 0.9f) * maxDistance;
 				} else if(index % 2 == 0.0f) {
 					return cocos2d::Vec2(startX, startY) +
-							cocos2d::Vec2(CCRANDOM_0_1(), CCRANDOM_0_1()).getNormalized() *
-							(0.1f + CCRANDOM_0_1() * 0.9f) * maxDistance;
+							cocos2d::Vec2(AXRANDOM_0_1(), AXRANDOM_0_1()).getNormalized() *
+							(0.1f + AXRANDOM_0_1() * 0.9f) * maxDistance;
 				}
 				
 				return cocos2d::Vec2(startX, startY) +
-						cocos2d::Vec2(-CCRANDOM_0_1(), CCRANDOM_0_1()).getNormalized() *
-						(0.1f + CCRANDOM_0_1() * 0.9f) * maxDistance;
+						cocos2d::Vec2(-AXRANDOM_0_1(), AXRANDOM_0_1()).getNormalized() *
+						(0.1f + AXRANDOM_0_1() * 0.9f) * maxDistance;
 			});
 			break;
         case SpawnStyle::STATIC:

@@ -6,9 +6,9 @@
 //  Copyright © 2019 Opala Studios. All rights reserved.
 //
 
-#include "./Scene/OPSplashScene.hpp"
+//#include "./Scene/OPSplashScene.hpp"
 #include "Opalib.h"
-#include "./Initializer/OPInitializer.hpp"
+//#include "./Initializer/OPInitializer.hpp"
 
 USING_NS_CC;
 
@@ -74,7 +74,7 @@ void Opalib::initialize()
     setupViewForFairyGUI();
 //    Director::getInstance()->setDisplayStats(debugMode);
 
-    OPInitializer::shared()->initialize();
+//    OPInitializer::shared()->initialize();
 }
 
 void Opalib::setupViewForFairyGUI()

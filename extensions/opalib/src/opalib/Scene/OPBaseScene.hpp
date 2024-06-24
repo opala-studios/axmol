@@ -9,17 +9,17 @@
 #include <FairyGUI.h>
 #include <vector>
 
-#include "../Localization/OPLocalization.hpp"
+//#include "../Localization/OPLocalization.hpp"
 
 typedef std::pair<std::string, fairygui::UIObjectFactory::GComponentCreator> SEL_ComponentCreator;
 
 struct OPBaseSceneParams {
-    std::string packagePath = "fairy/";
+    std::string packagePath = "UI/";
     std::string packageName;
     std::string viewName = "Main";
     std::string safeAreaViewName = "safeArea";
     std::string bannerAreaViewName = "adsBannerArea";
-	std::vector<TranslatableItem> translations;
+//	std::vector<TranslatableItem> translations;
 
     virtual ~OPBaseSceneParams() = default;
 };
